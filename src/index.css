@@ -1,96 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 40 33% 98%;
+    --foreground: 20 25% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 25% 97%;
+    --card-foreground: 20 25% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 20 25% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 24 92% 54%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 152 45% 42%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 25% 93%;
+    --muted-foreground: 20 10% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 93% 58%;
+    --accent-foreground: 20 25% 12%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 24 92% 54%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom tokens */
+    --sunrise: 24 92% 54%;
+    --sunrise-light: 30 95% 65%;
+    --sunrise-dark: 18 85% 45%;
+    --leaf: 152 45% 42%;
+    --leaf-light: 148 40% 55%;
+    --leaf-dark: 155 50% 32%;
+    --golden: 45 93% 58%;
+    --golden-light: 48 90% 72%;
+    --cream: 40 33% 98%;
+    --warm-gray: 30 8% 65%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Persona colors */
+    --persona-boomer: 270 60% 58%;
+    --persona-millennial: 210 80% 55%;
+    --persona-genz: 330 75% 60%;
+    --persona-indulge: 24 92% 54%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Gradients */
+    --gradient-sunrise: linear-gradient(135deg, hsl(24 92% 54%), hsl(45 93% 58%));
+    --gradient-fresh: linear-gradient(135deg, hsl(152 45% 42%), hsl(148 40% 55%));
+    --gradient-warm: linear-gradient(135deg, hsl(30 95% 65%), hsl(24 92% 54%));
+    --gradient-hero: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(35 40% 94%) 100%);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(24 92% 54% / 0.08);
+    --shadow-card: 0 4px 16px -4px hsl(20 25% 12% / 0.06);
+    --shadow-elevated: 0 8px 30px -8px hsl(20 25% 12% / 0.12);
+    --shadow-glow: 0 0 20px hsl(24 92% 54% / 0.2);
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-background: 40 25% 97%;
+    --sidebar-foreground: 20 25% 12%;
+    --sidebar-primary: 24 92% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 25% 93%;
+    --sidebar-accent-foreground: 20 25% 12%;
+    --sidebar-border: 35 20% 88%;
+    --sidebar-ring: 24 92% 54%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'DM Sans', sans-serif;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --background: 20 20% 8%;
+    --foreground: 40 20% 93%;
+    --card: 20 18% 12%;
+    --card-foreground: 40 20% 93%;
+    --popover: 20 18% 12%;
+    --popover-foreground: 40 20% 93%;
+    --primary: 24 92% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 152 45% 42%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 20 15% 18%;
+    --muted-foreground: 30 10% 55%;
+    --accent: 45 93% 58%;
+    --accent-foreground: 20 25% 12%;
+    --destructive: 0 62% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 20 12% 22%;
+    --input: 20 12% 22%;
+    --ring: 24 92% 54%;
+    --sidebar-background: 20 18% 10%;
+    --sidebar-foreground: 40 20% 93%;
+    --sidebar-primary: 24 92% 54%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 20 15% 15%;
+    --sidebar-accent-foreground: 40 20% 93%;
+    --sidebar-border: 20 12% 20%;
+    --sidebar-ring: 24 92% 54%;
   }
 }
 
@@ -98,8 +114,50 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .gradient-sunrise {
+    background: var(--gradient-sunrise);
+  }
+  .gradient-fresh {
+    background: var(--gradient-fresh);
+  }
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .text-gradient-sunrise {
+    background: var(--gradient-sunrise);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
   }
 }
