@@ -58,7 +58,7 @@ export default function SubscriptionsPage() {
 
             <div className="flex flex-wrap gap-3">
               <Link to="/subscription/schedule"><Button variant="outline"><Calendar className="h-4 w-4 mr-2" /> Schedule Meals</Button></Link>
-              <Button variant="outline"><Pause className="h-4 w-4 mr-2" /> Pause Plan</Button>
+              <Link to="/subscription/pause"><Button variant="outline"><Pause className="h-4 w-4 mr-2" /> Pause Plan</Button></Link>
               <Link to="/pricing"><Button variant="outline"><ArrowUp className="h-4 w-4 mr-2" /> Upgrade</Button></Link>
             </div>
           </CardContent>
