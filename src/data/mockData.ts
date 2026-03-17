@@ -106,12 +106,12 @@ export const subscriptionPlans: SubscriptionPlan[] = [
 
 export const sampleOrders: Order[] = [
   {
-    id: '1', orderNumber: '7AM-00247', date: '2026-03-17', time: '7:30 AM', station: 'Rajiv Chowk',
+    id: '1', orderNumber: '7AM-00247', date: '2026-03-18', time: '7:30 AM', station: 'Rajiv Chowk',
     items: [{ name: 'Sprouted Moong Chaat', quantity: 1, price: 89 }, { name: 'Probiotic Lassi', quantity: 1, price: 69 }],
     total: 158, status: 'confirmed',
   },
   {
-    id: '2', orderNumber: '7AM-00231', date: '2026-03-16', time: '8:00 AM', station: 'Huda City Centre',
+    id: '2', orderNumber: '7AM-00231', date: '2026-03-17', time: '8:00 AM', station: 'Huda City Centre',
     items: [{ name: 'Overnight Oats Bowl', quantity: 2, price: 109 }],
     total: 218, status: 'ready',
   },
@@ -119,6 +119,26 @@ export const sampleOrders: Order[] = [
     id: '3', orderNumber: '7AM-00198', date: '2026-03-14', time: '7:15 AM', station: 'Rajiv Chowk',
     items: [{ name: 'Masala Egg White Wrap', quantity: 1, price: 119 }, { name: 'Probiotic Lassi', quantity: 1, price: 69 }],
     total: 188, status: 'picked_up',
+  },
+  {
+    id: '4', orderNumber: '7AM-00185', date: '2026-03-12', time: '7:45 AM', station: 'Kashmere Gate',
+    items: [{ name: 'Acai Smoothie Bowl', quantity: 1, price: 149 }],
+    total: 149, status: 'picked_up',
+  },
+  {
+    id: '5', orderNumber: '7AM-00172', date: '2026-03-10', time: '8:15 AM', station: 'Hauz Khas',
+    items: [{ name: 'Chocolate Ragi Pancakes', quantity: 1, price: 129 }, { name: 'Probiotic Lassi', quantity: 1, price: 69 }],
+    total: 198, status: 'picked_up',
+  },
+  {
+    id: '6', orderNumber: '7AM-00156', date: '2026-03-08', time: '7:00 AM', station: 'Rajiv Chowk',
+    items: [{ name: 'Avocado Toast Stack', quantity: 1, price: 159 }],
+    total: 159, status: 'picked_up',
+  },
+  {
+    id: '7', orderNumber: '7AM-00140', date: '2026-03-05', time: '7:30 AM', station: 'Huda City Centre',
+    items: [{ name: 'Multigrain Thepla Wrap', quantity: 2, price: 99 }],
+    total: 198, status: 'cancelled',
   },
 ];
 
