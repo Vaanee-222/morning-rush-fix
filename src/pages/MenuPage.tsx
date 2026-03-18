@@ -25,7 +25,7 @@ export default function MenuPage() {
 
   const toggleFilter = (f: string) => setFilters(prev => prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f]);
 
-  const filtered = menuItems.filter((item) => {
+  const filtered = extendedMenuItems.filter((item) => {
     if (activePersona !== 'all' && !item.persona.includes(activePersona)) return false;
     if (search && !item.name.toLowerCase().includes(search.toLowerCase())) return false;
     if (filters.includes('vegetarian') && !item.isVegetarian) return false;
