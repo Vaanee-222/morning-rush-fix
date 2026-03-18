@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Check, Clock, FileText } from 'lucide-react';
 
 export default function BetaStatusPage() {
-  const status = 'approved'; // mock: pending | approved | rejected
+  const status: string = 'approved'; // mock: pending | approved | rejected
 
   return (
     <div className="min-h-screen bg-background">
