@@ -11,7 +11,7 @@ interface MenuItemCardProps {
 
 export function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
   return (
-    <div className="group rounded-xl border border-border bg-card overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
+    <Link to={`/menu/item/${item.id}`} className="group rounded-xl border border-border bg-card overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 block">
       <div className="relative aspect-square overflow-hidden">
         <img
           src={getFoodImage(item.id)}
