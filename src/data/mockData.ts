@@ -22,6 +22,7 @@ export interface MenuItem {
   isVegan?: boolean;
   isGlutenFree?: boolean;
   allergens?: string[];
+  ingredients?: string[];
 }
 
 export interface SubscriptionPlan {
