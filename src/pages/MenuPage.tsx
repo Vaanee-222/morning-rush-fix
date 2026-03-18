@@ -41,7 +41,7 @@ export default function MenuPage() {
       <Navbar />
       <div className="container py-8">
         <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">Our Menu</h1>
-        <p className="text-muted-foreground mb-6">Fresh, gut-friendly breakfasts made for your morning commute</p>
+        <p className="text-muted-foreground mb-6">Fresh, gut-friendly breakfasts — {extendedMenuItems.length} items to choose from</p>
 
         {/* Persona Tabs */}
         <div className="flex flex-wrap gap-2 mb-6">

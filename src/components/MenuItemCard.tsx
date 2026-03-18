@@ -67,6 +67,6 @@ export function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
           </Button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
