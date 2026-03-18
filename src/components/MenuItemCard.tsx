@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { getFoodImage } from '@/lib/images';
 import { MenuItem } from '@/data/mockData';
 import { Badge } from '@/components/ui/badge';
