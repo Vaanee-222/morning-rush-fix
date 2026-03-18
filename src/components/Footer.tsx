@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="container py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-sunrise">
@@ -21,17 +21,29 @@ export function Footer() {
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <Link to="/menu" className="hover:text-foreground transition-colors">Menu</Link>
               <Link to="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>
+              <Link to="/membership" className="hover:text-foreground transition-colors">Membership</Link>
               <Link to="/locations" className="hover:text-foreground transition-colors">Locations</Link>
               <Link to="/beta/apply" className="hover:text-foreground transition-colors">Beta Eaters</Link>
+              <Link to="/partner" className="hover:text-foreground transition-colors">Partner Program</Link>
             </div>
           </div>
           <div>
             <h4 className="font-display font-semibold mb-3">Company</h4>
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <Link to="/about" className="hover:text-foreground transition-colors">About Us</Link>
+              <Link to="/founder-story" className="hover:text-foreground transition-colors">Founder Story</Link>
               <Link to="/careers" className="hover:text-foreground transition-colors">Careers</Link>
               <Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link>
+              <Link to="/experience" className="hover:text-foreground transition-colors">Experience</Link>
+              <Link to="/tour" className="hover:text-foreground transition-colors">Take a Tour</Link>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-display font-semibold mb-3">Support</h4>
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+              <Link to="/help" className="hover:text-foreground transition-colors">Help Center</Link>
               <Link to="/faq" className="hover:text-foreground transition-colors">FAQ</Link>
+              <Link to="/feedback" className="hover:text-foreground transition-colors">Feedback</Link>
             </div>
           </div>
           <div>

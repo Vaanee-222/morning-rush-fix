@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { MenuItemCard } from '@/components/MenuItemCard';
-import { menuItems, personas } from '@/data/mockData';
+import { extendedMenuItems } from '@/data/menuDatabase';
+import { personas } from '@/data/mockData';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Search } from 'lucide-react';
@@ -24,7 +25,7 @@ export default function MenuPage() {
 
   const toggleFilter = (f: string) => setFilters(prev => prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f]);
 
-  const filtered = menuItems.filter((item) => {
+  const filtered = extendedMenuItems.filter((item) => {
     if (activePersona !== 'all' && !item.persona.includes(activePersona)) return false;
     if (search && !item.name.toLowerCase().includes(search.toLowerCase())) return false;
     if (filters.includes('vegetarian') && !item.isVegetarian) return false;
@@ -40,7 +41,7 @@ export default function MenuPage() {
       <Navbar />
       <div className="container py-8">
         <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">Our Menu</h1>
-        <p className="text-muted-foreground mb-6">Fresh, gut-friendly breakfasts made for your morning commute</p>
+        <p className="text-muted-foreground mb-6">Fresh, gut-friendly breakfasts — {extendedMenuItems.length} items to choose from</p>
 
         {/* Persona Tabs */}
         <div className="flex flex-wrap gap-2 mb-6">
