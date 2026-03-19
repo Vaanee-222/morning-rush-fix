@@ -53,6 +53,7 @@ import AdminStationsPage from "./pages/admin/AdminStationsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
 import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
+import ShopPage from "./pages/ShopPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
