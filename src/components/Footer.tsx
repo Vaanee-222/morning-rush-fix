@@ -20,6 +20,7 @@ export function Footer() {
             <h4 className="font-display font-semibold mb-3">Product</h4>
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <Link to="/menu" className="hover:text-foreground transition-colors">Menu</Link>
+              <Link to="/shop" className="hover:text-foreground transition-colors">Shop</Link>
               <Link to="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>
               <Link to="/membership" className="hover:text-foreground transition-colors">Membership</Link>
               <Link to="/locations" className="hover:text-foreground transition-colors">Locations</Link>
