@@ -53,6 +53,7 @@ import AdminStationsPage from "./pages/admin/AdminStationsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
 import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
+import ShopPage from "./pages/ShopPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -76,6 +77,7 @@ const App = () => (
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/tour" element={<TourPage />} />
           <Route path="/founder-story" element={<FounderStoryPage />} />
+          <Route path="/shop" element={<ShopPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/help" element={<HelpCenterPage />} />

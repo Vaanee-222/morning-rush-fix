@@ -48,9 +48,11 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <Button variant={plan.isPopular ? 'hero' : 'outline'} size="lg" className="w-full">
-                Choose {plan.name} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/subscription/schedule">
+                <Button variant={plan.isPopular ? 'hero' : 'outline'} size="lg" className="w-full">
+                  Choose {plan.name} <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           ))}
         </div>
