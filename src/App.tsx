@@ -50,10 +50,18 @@ import AdminMenuPage from "./pages/admin/AdminMenuPage";
 import AdminCustomersPage from "./pages/admin/AdminCustomersPage";
 import AdminSubscriptionsPage from "./pages/admin/AdminSubscriptionsPage";
 import AdminStationsPage from "./pages/admin/AdminStationsPage";
+import AdminPartnersPage from "./pages/admin/AdminPartnersPage";
+import AdminInventoryPage from "./pages/admin/AdminInventoryPage";
+import AdminNotificationsPage from "./pages/admin/AdminNotificationsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
 import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
 import ShopPage from "./pages/ShopPage";
+import DeliveryDashboardPage from "./pages/delivery/DeliveryDashboardPage";
+import LoginPage from "./pages/auth/LoginPage";
+import SignupPage from "./pages/auth/SignupPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -89,8 +97,11 @@ const App = () => (
           <Route path="/refund-policy" element={<RefundPolicyPage />} />
           <Route path="/license" element={<FSSAIPage />} />
 
-          {/* Onboarding */}
-          <Route path="/login" element={<OnboardingPage />} />
+          {/* Auth */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/onboarding" element={<OnboardingPage />} />
 
           {/* Beta Eater */}
@@ -106,6 +117,9 @@ const App = () => (
           {/* Partner */}
           <Route path="/partner" element={<PartnerProgramPage />} />
           <Route path="/partner/dashboard" element={<PartnerDashboardPage />} />
+
+          {/* Delivery Partner */}
+          <Route path="/delivery/dashboard" element={<DeliveryDashboardPage />} />
 
           {/* User */}
           <Route path="/dashboard" element={<DashboardPage />} />
@@ -126,6 +140,9 @@ const App = () => (
           <Route path="/admin/customers" element={<AdminCustomersPage />} />
           <Route path="/admin/subscriptions" element={<AdminSubscriptionsPage />} />
           <Route path="/admin/stations" element={<AdminStationsPage />} />
+          <Route path="/admin/partners" element={<AdminPartnersPage />} />
+          <Route path="/admin/inventory" element={<AdminInventoryPage />} />
+          <Route path="/admin/notifications" element={<AdminNotificationsPage />} />
           <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
           <Route path="/admin/analytics/:tab" element={<AdminAnalyticsPage />} />
           <Route path="/admin/settings" element={<AdminSettingsPage />} />
