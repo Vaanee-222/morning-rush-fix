@@ -1,8 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import {
-  BarChart3, ShoppingCart, Users, Utensils, Package, MapPin, TrendingUp, Settings, Bell, LogOut
+  BarChart3, ShoppingCart, Users, Utensils, Package, MapPin, TrendingUp, Settings, Bell, LogOut, Handshake, Warehouse, Send
 } from 'lucide-react';
 
 const navItems = [
@@ -12,6 +12,9 @@ const navItems = [
   { icon: Users, label: 'Customers', href: '/admin/customers' },
   { icon: Package, label: 'Subscriptions', href: '/admin/subscriptions' },
   { icon: MapPin, label: 'Stations', href: '/admin/stations' },
+  { icon: Handshake, label: 'Partners', href: '/admin/partners' },
+  { icon: Warehouse, label: 'Inventory', href: '/admin/inventory' },
+  { icon: Send, label: 'Notifications', href: '/admin/notifications' },
   { icon: TrendingUp, label: 'Analytics', href: '/admin/analytics' },
   { icon: Settings, label: 'Settings', href: '/admin/settings' },
 ];
@@ -35,13 +38,13 @@ export default function AdminLayout({ children, active }: AdminLayoutProps) {
             </Link>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon"><Bell className="h-4 w-4" /></Button>
-            <Button variant="ghost" size="icon"><Settings className="h-4 w-4" /></Button>
+            <Link to="/admin/notifications"><Button variant="ghost" size="icon"><Bell className="h-4 w-4" /></Button></Link>
+            <Link to="/admin/settings"><Button variant="ghost" size="icon"><Settings className="h-4 w-4" /></Button></Link>
             <Separator orientation="vertical" className="h-6" />
-            <div className="flex items-center gap-2">
+            <Link to="/admin/profile" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full gradient-fresh flex items-center justify-center text-xs font-bold text-secondary-foreground">A</div>
               <span className="text-sm font-medium hidden sm:block">Admin</span>
-            </div>
+            </Link>
           </div>
         </div>
       </header>
@@ -50,13 +53,8 @@ export default function AdminLayout({ children, active }: AdminLayoutProps) {
         <aside className="hidden lg:block w-56 border-r border-border bg-card min-h-[calc(100vh-3.5rem)] p-4">
           <nav className="space-y-1">
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${
-                  active === item.label ? 'bg-primary/10 text-primary font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-                }`}
-              >
+              <Link key={item.label} to={item.href}
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${active === item.label ? 'bg-primary/10 text-primary font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}>
                 <item.icon className="h-4 w-4" />
                 {item.label}
               </Link>
