@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import {
-  BarChart3, ShoppingCart, Users, Utensils, Package, MapPin, TrendingUp, Settings, Bell, LogOut, Handshake, Warehouse, Send
+  BarChart3, ShoppingCart, Users, Utensils, Package, MapPin, TrendingUp, Settings, Bell, LogOut, Handshake, Warehouse, Send, Crown, Flag
 } from 'lucide-react';
 
 const navItems = [
@@ -11,7 +11,9 @@ const navItems = [
   { icon: Utensils, label: 'Menu', href: '/admin/menu' },
   { icon: Users, label: 'Customers', href: '/admin/customers' },
   { icon: Package, label: 'Subscriptions', href: '/admin/subscriptions' },
+  { icon: Crown, label: 'Memberships', href: '/admin/memberships' },
   { icon: MapPin, label: 'Stations', href: '/admin/stations' },
+  { icon: Flag, label: 'Chapters', href: '/admin/chapters' },
   { icon: Handshake, label: 'Partners', href: '/admin/partners' },
   { icon: Warehouse, label: 'Inventory', href: '/admin/inventory' },
   { icon: Send, label: 'Notifications', href: '/admin/notifications' },
