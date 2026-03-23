@@ -6,10 +6,12 @@ import { Progress } from '@/components/ui/progress';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Search, Eye, Edit, Plus, Package, Users, TrendingUp } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Search, Eye, Edit, Plus, Package, Users, TrendingUp, Star, Trash2, Crown } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { toast } from 'sonner';
 
+// Subscriptions
 const subs = [
   { id: '1', name: 'Priya Mehra', plan: 'Regular Fix', meals: '12/20', pct: 60, status: 'active', nextBill: 'Apr 1', amount: '₹1,599', station: 'Rajiv Chowk', startDate: '2026-01-15' },
   { id: '2', name: 'Meera Reddy', plan: 'Munch Legend', meals: '22/30', pct: 73, status: 'active', nextBill: 'Apr 1', amount: '₹2,099', station: 'Kashmere Gate', startDate: '2026-01-20' },
@@ -18,11 +20,25 @@ const subs = [
   { id: '5', name: 'Dev Patel', plan: 'Sprout Saver', meals: '3/10', pct: 30, status: 'cancelled', nextBill: '—', amount: '—', station: 'Noida Sec 18', startDate: '2026-03-01' },
 ];
 
-const plans = [
+const initialPlans = [
   { id: 'p1', name: 'Sprout Saver', meals: 10, price: 899, description: 'Perfect starter pack', features: ['10 meals/month', 'Any station pickup', 'Meal swap 2x'] },
   { id: 'p2', name: 'Regular Fix', meals: 20, price: 1599, description: 'Most popular choice', features: ['20 meals/month', 'Priority pickup', 'Meal swap 5x', 'Free add-on 2x'] },
   { id: 'p3', name: 'Munch Legend', meals: 30, price: 2099, description: 'Daily breakfast hero', features: ['30 meals/month', 'VIP pickup', 'Unlimited swaps', 'Free add-ons', 'Priority support'] },
   { id: 'p4', name: 'Mega Freak', meals: 45, price: 2899, description: 'Family & teams', features: ['45 meals/month', 'Multi-person', 'VIP everything', 'Free merchandise'] },
+];
+
+// Memberships
+const initialMemberships = [
+  { id: 'm1', name: 'Silver', price: 199, perks: ['Daily free chai/coffee', 'Birthday surprise meal', '5% extra discount'], color: 'bg-muted' },
+  { id: 'm2', name: 'Gold', price: 399, perks: ['Daily free drink (any)', 'Priority pickup', '10% extra discount', 'Free delivery 3x/week'], color: 'bg-golden/10' },
+  { id: 'm3', name: 'Platinum', price: 699, perks: ['Daily free drink + snack', 'VIP pickup lane', '15% extra discount', 'Free delivery unlimited', 'Early menu access', 'Exclusive events'], color: 'bg-primary/10' },
+];
+
+const activeMemberships = [
+  { id: 'am1', customer: 'Priya Mehra', tier: 'Gold', since: 'Jan 2026', status: 'active', nextBill: 'Apr 1' },
+  { id: 'am2', customer: 'Meera Reddy', tier: 'Platinum', since: 'Feb 2026', status: 'active', nextBill: 'Apr 1' },
+  { id: 'am3', customer: 'Rahul Kumar', tier: 'Silver', since: 'Mar 2026', status: 'active', nextBill: 'Apr 15' },
+  { id: 'am4', customer: 'Sneha Dutta', tier: 'Gold', since: 'Feb 2026', status: 'paused', nextBill: '—' },
 ];
 
 const statusColors: Record<string, string> = {
@@ -31,10 +47,18 @@ const statusColors: Record<string, string> = {
   cancelled: 'bg-destructive/10 text-destructive',
 };
 
+const tierColors: Record<string, string> = {
+  Silver: 'bg-muted text-foreground',
+  Gold: 'bg-golden/10 text-accent-foreground',
+  Platinum: 'bg-primary/10 text-primary',
+};
+
 export default function AdminSubscriptionsPage() {
   const [search, setSearch] = useState('');
   const [tab, setTab] = useState('subscribers');
   const [selectedSub, setSelectedSub] = useState<typeof subs[0] | null>(null);
+  const [plans, setPlans] = useState(initialPlans);
+  const [memberships, setMemberships] = useState(initialMemberships);
 
   const filtered = subs.filter(s => s.name.toLowerCase().includes(search.toLowerCase()) || s.plan.toLowerCase().includes(search.toLowerCase()));
 
@@ -42,27 +66,28 @@ export default function AdminSubscriptionsPage() {
     <AdminLayout active="Subscriptions">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold">Subscriptions</h1>
-          <p className="text-sm text-muted-foreground">Manage subscribers and plans</p>
+          <h1 className="font-display text-2xl font-bold">Subscriptions & Memberships</h1>
+          <p className="text-sm text-muted-foreground">Manage subscribers, plans, and membership tiers</p>
         </div>
         <div className="flex gap-2">
-          <Badge className="bg-secondary/10 text-secondary">Active: {subs.filter(s => s.status === 'active').length}</Badge>
-          <Badge className="bg-golden/10 text-accent-foreground">Paused: {subs.filter(s => s.status === 'paused').length}</Badge>
-          <Badge className="bg-destructive/10 text-destructive">Cancelled: {subs.filter(s => s.status === 'cancelled').length}</Badge>
+          <Badge className="bg-secondary/10 text-secondary">Active Subs: {subs.filter(s => s.status === 'active').length}</Badge>
+          <Badge className="bg-golden/10 text-accent-foreground">Members: {activeMemberships.filter(m => m.status === 'active').length}</Badge>
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="grid sm:grid-cols-3 gap-4 mb-6">
-        <Card className="shadow-soft"><CardContent className="p-5 flex items-center gap-3"><Users className="h-8 w-8 text-primary" /><div><p className="text-sm text-muted-foreground">MRR</p><p className="font-display text-2xl font-bold">₹2,45,000</p></div></CardContent></Card>
-        <Card className="shadow-soft"><CardContent className="p-5 flex items-center gap-3"><Package className="h-8 w-8 text-secondary" /><div><p className="text-sm text-muted-foreground">Active Plans</p><p className="font-display text-2xl font-bold">{subs.filter(s => s.status === 'active').length}</p></div></CardContent></Card>
-        <Card className="shadow-soft"><CardContent className="p-5 flex items-center gap-3"><TrendingUp className="h-8 w-8 text-golden" /><div><p className="text-sm text-muted-foreground">Avg Revenue/User</p><p className="font-display text-2xl font-bold">₹1,237</p></div></CardContent></Card>
+      <div className="grid sm:grid-cols-4 gap-4 mb-6">
+        <Card className="shadow-soft"><CardContent className="p-5 flex items-center gap-3"><Users className="h-8 w-8 text-primary" /><div><p className="text-sm text-muted-foreground">MRR (Subs)</p><p className="font-display text-xl font-bold">₹2,45,000</p></div></CardContent></Card>
+        <Card className="shadow-soft"><CardContent className="p-5 flex items-center gap-3"><Package className="h-8 w-8 text-secondary" /><div><p className="text-sm text-muted-foreground">Active Plans</p><p className="font-display text-xl font-bold">{subs.filter(s => s.status === 'active').length}</p></div></CardContent></Card>
+        <Card className="shadow-soft"><CardContent className="p-5 flex items-center gap-3"><Crown className="h-8 w-8 text-golden" /><div><p className="text-sm text-muted-foreground">Active Members</p><p className="font-display text-xl font-bold">{activeMemberships.filter(m => m.status === 'active').length}</p></div></CardContent></Card>
+        <Card className="shadow-soft"><CardContent className="p-5 flex items-center gap-3"><TrendingUp className="h-8 w-8 text-persona-genz" /><div><p className="text-sm text-muted-foreground">Avg Rev/User</p><p className="font-display text-xl font-bold">₹1,237</p></div></CardContent></Card>
       </div>
 
       <Tabs value={tab} onValueChange={setTab}>
         <TabsList className="mb-4">
           <TabsTrigger value="subscribers">Subscribers</TabsTrigger>
-          <TabsTrigger value="plans">Plans (CRUD)</TabsTrigger>
+          <TabsTrigger value="plans">Subscription Plans</TabsTrigger>
+          <TabsTrigger value="memberships"><Crown className="h-3 w-3 mr-1" /> Membership Tiers</TabsTrigger>
+          <TabsTrigger value="active-members">Active Members</TabsTrigger>
         </TabsList>
 
         <TabsContent value="subscribers">
@@ -72,7 +97,6 @@ export default function AdminSubscriptionsPage() {
               <Input placeholder="Search subscriptions..." className="pl-9" value={search} onChange={e => setSearch(e.target.value)} />
             </div>
           </div>
-
           <Card className="shadow-soft">
             <CardContent className="p-0">
               <table className="w-full text-sm">
@@ -133,7 +157,6 @@ export default function AdminSubscriptionsPage() {
               </DialogContent>
             </Dialog>
           </div>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {plans.map(plan => (
               <Card key={plan.id} className="shadow-soft hover:shadow-card transition-shadow">
@@ -142,16 +165,85 @@ export default function AdminSubscriptionsPage() {
                   <p className="text-xs text-muted-foreground mb-3">{plan.description}</p>
                   <p className="font-display text-2xl font-bold text-primary">₹{plan.price}<span className="text-xs text-muted-foreground font-normal">/mo</span></p>
                   <p className="text-sm text-muted-foreground mb-3">{plan.meals} meals/month</p>
-                  <ul className="space-y-1 mb-4">
-                    {plan.features.map(f => <li key={f} className="text-xs text-muted-foreground">✓ {f}</li>)}
-                  </ul>
+                  <ul className="space-y-1 mb-4">{plan.features.map(f => <li key={f} className="text-xs text-muted-foreground">✓ {f}</li>)}</ul>
                   <div className="flex gap-2">
                     <Button variant="outline" size="sm" className="flex-1" onClick={() => toast.success(`Editing ${plan.name}`)}><Edit className="h-3 w-3 mr-1" /> Edit</Button>
+                    <Button variant="ghost" size="sm" className="text-destructive" onClick={() => { setPlans(prev => prev.filter(p => p.id !== plan.id)); toast.success('Plan deleted'); }}><Trash2 className="h-3 w-3" /></Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+        </TabsContent>
+
+        <TabsContent value="memberships">
+          <div className="flex justify-end mb-4">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="hero"><Plus className="h-4 w-4 mr-2" /> Create Tier</Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-lg">
+                <DialogHeader><DialogTitle>Create Membership Tier</DialogTitle></DialogHeader>
+                <div className="space-y-4 mt-4">
+                  <div><label className="text-sm font-medium mb-1 block">Tier Name</label><Input placeholder="e.g. Diamond" /></div>
+                  <div><label className="text-sm font-medium mb-1 block">Price (₹/month)</label><Input type="number" placeholder="999" /></div>
+                  <div><label className="text-sm font-medium mb-1 block">Perks (comma separated)</label><Input placeholder="Free delivery, VIP access, ..." /></div>
+                  <Button variant="hero" className="w-full" onClick={() => toast.success('Membership tier created!')}>
+                    <Plus className="h-4 w-4 mr-2" /> Create Tier
+                  </Button>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {memberships.map(m => (
+              <Card key={m.id} className={`shadow-soft ${m.color} border-2`}>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Crown className="h-5 w-5 text-golden" />
+                    <h3 className="font-display font-bold text-xl">{m.name}</h3>
+                  </div>
+                  <p className="font-display text-3xl font-bold text-primary mb-4">₹{m.price}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
+                  <ul className="space-y-2 mb-4">
+                    {m.perks.map(p => <li key={p} className="text-sm flex items-center gap-2"><Star className="h-3 w-3 text-golden" /> {p}</li>)}
+                  </ul>
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="sm" className="flex-1" onClick={() => toast.success(`Editing ${m.name}`)}><Edit className="h-3 w-3 mr-1" /> Edit</Button>
+                    <Button variant="ghost" size="sm" className="text-destructive" onClick={() => { setMemberships(prev => prev.filter(x => x.id !== m.id)); toast.success('Tier deleted'); }}><Trash2 className="h-3 w-3" /></Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="active-members">
+          <Card className="shadow-soft">
+            <CardContent className="p-0">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border text-left">
+                    <th className="p-4 text-muted-foreground font-medium">Customer</th>
+                    <th className="p-4 text-muted-foreground font-medium">Tier</th>
+                    <th className="p-4 text-muted-foreground font-medium">Since</th>
+                    <th className="p-4 text-muted-foreground font-medium">Status</th>
+                    <th className="p-4 text-muted-foreground font-medium">Next Bill</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {activeMemberships.map(m => (
+                    <tr key={m.id} className="border-b border-border/50 last:border-0 hover:bg-muted/30">
+                      <td className="p-4 font-medium">{m.customer}</td>
+                      <td className="p-4"><Badge className={`text-xs ${tierColors[m.tier]}`}><Crown className="h-3 w-3 mr-1" /> {m.tier}</Badge></td>
+                      <td className="p-4 text-muted-foreground">{m.since}</td>
+                      <td className="p-4"><Badge className={`text-xs ${statusColors[m.status]}`}>{m.status}</Badge></td>
+                      <td className="p-4 text-muted-foreground">{m.nextBill}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
 

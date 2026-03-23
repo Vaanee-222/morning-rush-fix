@@ -55,7 +55,10 @@ import AdminInventoryPage from "./pages/admin/AdminInventoryPage";
 import AdminNotificationsPage from "./pages/admin/AdminNotificationsPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
 import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
+import AdminMembershipsPage from "./pages/admin/AdminMembershipsPage";
+import AdminChaptersPage from "./pages/admin/AdminChaptersPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
+import ChaptersPage from "./pages/ChaptersPage";
 import ShopPage from "./pages/ShopPage";
 import DeliveryDashboardPage from "./pages/delivery/DeliveryDashboardPage";
 import LoginPage from "./pages/auth/LoginPage";
@@ -87,6 +90,7 @@ const App = () => (
           <Route path="/founder-story" element={<FounderStoryPage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/chapters" element={<ChaptersPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/help" element={<HelpCenterPage />} />
           <Route path="/feedback" element={<FeedbackPage />} />
@@ -143,6 +147,8 @@ const App = () => (
           <Route path="/admin/partners" element={<AdminPartnersPage />} />
           <Route path="/admin/inventory" element={<AdminInventoryPage />} />
           <Route path="/admin/notifications" element={<AdminNotificationsPage />} />
+          <Route path="/admin/memberships" element={<AdminMembershipsPage />} />
+          <Route path="/admin/chapters" element={<AdminChaptersPage />} />
           <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
           <Route path="/admin/analytics/:tab" element={<AdminAnalyticsPage />} />
           <Route path="/admin/settings" element={<AdminSettingsPage />} />

@@ -5,20 +5,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
-import { Search, Filter, Eye, X, Printer, MapPin, Clock, User, Package } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { Search, Eye, Printer, MapPin, Clock, User, Package, Star, Truck } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { toast } from 'sonner';
 
 const orders = [
-  { id: '7AM-00298', customer: 'Ankit Sharma', phone: '+91 97xxx xxxxx', email: 'ankit@email.com', station: 'Rajiv Chowk', time: '7:15 AM', date: '2026-03-17', items: [{ name: 'Sprouted Moong Chaat', qty: 1, price: 89 }, { name: 'Probiotic Lassi', qty: 1, price: 69 }], total: 198, subtotal: 178, gst: 9, platformFee: 5, packaging: 6, status: 'ready', payment: 'Paid', method: 'UPI' },
-  { id: '7AM-00297', customer: 'Meera Reddy', phone: '+91 96xxx xxxxx', email: 'meera@email.com', station: 'Huda City Centre', time: '7:30 AM', date: '2026-03-17', items: [{ name: 'Overnight Oats Bowl', qty: 1, price: 109 }], total: 109, subtotal: 99, gst: 5, platformFee: 3, packaging: 2, status: 'preparing', payment: 'Paid', method: 'Card' },
-  { id: '7AM-00296', customer: 'Rahul Kumar', phone: '+91 95xxx xxxxx', email: 'rahul@email.com', station: 'Rajiv Chowk', time: '7:45 AM', date: '2026-03-17', items: [{ name: 'Paneer Tikka Wrap', qty: 1, price: 129 }, { name: 'Masala Chai', qty: 2, price: 49 }], total: 267, subtotal: 247, gst: 12, platformFee: 5, packaging: 3, status: 'confirmed', payment: 'Paid', method: 'UPI' },
-  { id: '7AM-00295', customer: 'Priya Mehra', phone: '+91 98xxx xxxxx', email: 'priya@email.com', station: 'Kashmere Gate', time: '8:00 AM', date: '2026-03-17', items: [{ name: 'Acai Smoothie Bowl', qty: 1, price: 149 }], total: 149, subtotal: 139, gst: 7, platformFee: 3, packaging: 0, status: 'picked_up', payment: 'Paid', method: 'Wallet' },
-  { id: '7AM-00294', customer: 'Sneha Dutta', phone: '+91 94xxx xxxxx', email: 'sneha@email.com', station: 'Hauz Khas', time: '8:15 AM', date: '2026-03-17', items: [{ name: 'Egg Bhurji Roll', qty: 1, price: 99 }, { name: 'Cold Brew Coffee', qty: 1, price: 99 }], total: 218, subtotal: 198, gst: 10, platformFee: 5, packaging: 5, status: 'confirmed', payment: 'Paid', method: 'UPI' },
-  { id: '7AM-00292', customer: 'Kavita Lal', phone: '+91 93xxx xxxxx', email: 'kavita@email.com', station: 'Rajiv Chowk', time: '8:30 AM', date: '2026-03-16', items: [{ name: 'Quinoa Power Bowl', qty: 1, price: 169 }, { name: 'Green Detox Juice', qty: 1, price: 119 }], total: 308, subtotal: 288, gst: 14, platformFee: 5, packaging: 1, status: 'cancelled', payment: 'Refunded', method: 'Card' },
+  { id: '7AM-00298', customer: 'Ankit Sharma', phone: '+91 97xxx xxxxx', email: 'ankit@email.com', station: 'Rajiv Chowk', time: '7:15 AM', date: '2026-03-23', items: [{ name: 'Sprouted Moong Chaat', qty: 1, price: 89 }, { name: 'Probiotic Lassi', qty: 1, price: 69 }], total: 198, subtotal: 178, gst: 9, platformFee: 5, packaging: 6, status: 'ready', payment: 'Paid', method: 'UPI', partner: 'Vikram Singh', deliveryPartner: 'Raj Malhotra', deliveryStatus: 'assigned', feedback: { rating: 5, comment: 'Loved the freshness!' } },
+  { id: '7AM-00297', customer: 'Meera Reddy', phone: '+91 96xxx xxxxx', email: 'meera@email.com', station: 'Huda City Centre', time: '7:30 AM', date: '2026-03-23', items: [{ name: 'Overnight Oats Bowl', qty: 1, price: 109 }], total: 109, subtotal: 99, gst: 5, platformFee: 3, packaging: 2, status: 'preparing', payment: 'Paid', method: 'Card', partner: 'Sunita Rao', deliveryPartner: null, deliveryStatus: 'not_assigned', feedback: null },
+  { id: '7AM-00296', customer: 'Rahul Kumar', phone: '+91 95xxx xxxxx', email: 'rahul@email.com', station: 'Rajiv Chowk', time: '7:45 AM', date: '2026-03-23', items: [{ name: 'Paneer Tikka Wrap', qty: 1, price: 129 }, { name: 'Masala Chai', qty: 2, price: 49 }], total: 267, subtotal: 247, gst: 12, platformFee: 5, packaging: 3, status: 'confirmed', payment: 'Paid', method: 'UPI', partner: 'Vikram Singh', deliveryPartner: null, deliveryStatus: 'not_assigned', feedback: null },
+  { id: '7AM-00295', customer: 'Priya Mehra', phone: '+91 98xxx xxxxx', email: 'priya@email.com', station: 'Kashmere Gate', time: '8:00 AM', date: '2026-03-23', items: [{ name: 'Acai Smoothie Bowl', qty: 1, price: 149 }], total: 149, subtotal: 139, gst: 7, platformFee: 3, packaging: 0, status: 'picked_up', payment: 'Paid', method: 'Wallet', partner: 'Amit Patel', deliveryPartner: 'Suresh Kumar', deliveryStatus: 'delivered', feedback: { rating: 4, comment: 'Good but could be colder.' } },
+  { id: '7AM-00294', customer: 'Sneha Dutta', phone: '+91 94xxx xxxxx', email: 'sneha@email.com', station: 'Hauz Khas', time: '8:15 AM', date: '2026-03-23', items: [{ name: 'Egg Bhurji Roll', qty: 1, price: 99 }, { name: 'Cold Brew Coffee', qty: 1, price: 99 }], total: 218, subtotal: 198, gst: 10, platformFee: 5, packaging: 5, status: 'confirmed', payment: 'Paid', method: 'UPI', partner: 'Neha Gupta', deliveryPartner: null, deliveryStatus: 'not_assigned', feedback: null },
+  { id: '7AM-00292', customer: 'Kavita Lal', phone: '+91 93xxx xxxxx', email: 'kavita@email.com', station: 'Rajiv Chowk', time: '8:30 AM', date: '2026-03-22', items: [{ name: 'Quinoa Power Bowl', qty: 1, price: 169 }, { name: 'Green Detox Juice', qty: 1, price: 119 }], total: 308, subtotal: 288, gst: 14, platformFee: 5, packaging: 1, status: 'cancelled', payment: 'Refunded', method: 'Card', partner: 'Vikram Singh', deliveryPartner: null, deliveryStatus: 'not_assigned', feedback: null },
 ];
+
+const deliveryPartners = ['Raj Malhotra', 'Suresh Kumar', 'Deepak Yadav', 'Anil Sharma', 'Karan Singh'];
 
 const statusColors: Record<string, string> = {
   confirmed: 'bg-primary/10 text-primary',
@@ -26,6 +28,13 @@ const statusColors: Record<string, string> = {
   ready: 'bg-secondary/10 text-secondary',
   picked_up: 'bg-muted text-muted-foreground',
   cancelled: 'bg-destructive/10 text-destructive',
+};
+
+const deliveryColors: Record<string, string> = {
+  not_assigned: 'bg-destructive/10 text-destructive',
+  assigned: 'bg-primary/10 text-primary',
+  in_transit: 'bg-golden/10 text-accent-foreground',
+  delivered: 'bg-secondary/10 text-secondary',
 };
 
 export default function AdminOrdersPage() {
@@ -77,7 +86,8 @@ export default function AdminOrdersPage() {
                   <th className="p-4 text-muted-foreground font-medium">Order</th>
                   <th className="p-4 text-muted-foreground font-medium">Customer</th>
                   <th className="p-4 text-muted-foreground font-medium hidden md:table-cell">Station</th>
-                  <th className="p-4 text-muted-foreground font-medium">Date</th>
+                  <th className="p-4 text-muted-foreground font-medium hidden lg:table-cell">Partner</th>
+                  <th className="p-4 text-muted-foreground font-medium hidden lg:table-cell">Delivery</th>
                   <th className="p-4 text-muted-foreground font-medium">Total</th>
                   <th className="p-4 text-muted-foreground font-medium">Status</th>
                   <th className="p-4 text-muted-foreground font-medium">Action</th>
@@ -89,7 +99,12 @@ export default function AdminOrdersPage() {
                     <td className="p-4 font-medium">{order.id}</td>
                     <td className="p-4">{order.customer}</td>
                     <td className="p-4 hidden md:table-cell text-muted-foreground">{order.station}</td>
-                    <td className="p-4 text-muted-foreground">{order.date} {order.time}</td>
+                    <td className="p-4 hidden lg:table-cell text-xs text-muted-foreground">{order.partner}</td>
+                    <td className="p-4 hidden lg:table-cell">
+                      <Badge className={`text-[10px] ${deliveryColors[order.deliveryStatus]}`}>
+                        {order.deliveryPartner || 'Unassigned'}
+                      </Badge>
+                    </td>
                     <td className="p-4 font-medium">₹{order.total}</td>
                     <td className="p-4"><Badge className={`text-[10px] ${statusColors[order.status]}`}>{order.status.replace('_', ' ')}</Badge></td>
                     <td className="p-4"><Button variant="ghost" size="sm" onClick={() => setSelectedOrder(order)}><Eye className="h-3 w-3 mr-1" /> View</Button></td>
@@ -128,6 +143,31 @@ export default function AdminOrdersPage() {
                   <Clock className="h-4 w-4 text-muted-foreground" />
                   <span>{selectedOrder.date} at {selectedOrder.time}</span>
                 </div>
+
+                {/* Partner & Delivery Info */}
+                <div className="grid grid-cols-2 gap-3">
+                  <Card className="shadow-soft">
+                    <CardContent className="p-3">
+                      <p className="text-[10px] text-muted-foreground uppercase font-medium">Station Partner</p>
+                      <p className="text-sm font-semibold mt-1">{selectedOrder.partner}</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="shadow-soft">
+                    <CardContent className="p-3">
+                      <p className="text-[10px] text-muted-foreground uppercase font-medium flex items-center gap-1"><Truck className="h-3 w-3" /> Delivery Partner</p>
+                      {selectedOrder.deliveryPartner ? (
+                        <p className="text-sm font-semibold mt-1">{selectedOrder.deliveryPartner}</p>
+                      ) : (
+                        <select className="text-sm mt-1 border border-border rounded px-2 py-1 w-full bg-background"
+                          onChange={(e) => { if (e.target.value) toast.success(`Assigned ${e.target.value}`); }}>
+                          <option value="">Assign...</option>
+                          {deliveryPartners.map(dp => <option key={dp} value={dp}>{dp}</option>)}
+                        </select>
+                      )}
+                    </CardContent>
+                  </Card>
+                </div>
+
                 <Separator />
                 <h4 className="font-display font-semibold text-sm">Items</h4>
                 {selectedOrder.items.map((item, i) => (
@@ -148,6 +188,25 @@ export default function AdminOrdersPage() {
                   <span className="text-muted-foreground">Payment</span>
                   <span className="font-medium">{selectedOrder.payment} · {selectedOrder.method}</span>
                 </div>
+
+                {/* Feedback */}
+                <Separator />
+                <h4 className="font-display font-semibold text-sm flex items-center gap-2"><Star className="h-4 w-4 text-golden" /> Customer Feedback</h4>
+                {selectedOrder.feedback ? (
+                  <Card className="shadow-soft bg-muted/30">
+                    <CardContent className="p-3">
+                      <div className="flex items-center gap-1 mb-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className={`h-3.5 w-3.5 ${i < selectedOrder.feedback!.rating ? 'fill-golden text-golden' : 'text-muted-foreground'}`} />
+                        ))}
+                      </div>
+                      <p className="text-sm text-muted-foreground italic">"{selectedOrder.feedback.comment}"</p>
+                    </CardContent>
+                  </Card>
+                ) : (
+                  <p className="text-xs text-muted-foreground">No feedback yet</p>
+                )}
+
                 <Separator />
                 <div className="flex gap-2">
                   {selectedOrder.status === 'confirmed' && <Button variant="hero" size="sm" className="flex-1" onClick={() => updateStatus(selectedOrder.id, 'preparing')}>Mark Preparing</Button>}

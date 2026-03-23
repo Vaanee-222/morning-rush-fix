@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { menuItems } from '@/data/mockData';
 import { getFoodImage } from '@/lib/images';
-import { Search, Plus, Edit, Trash2, Eye, Filter, ArrowUpDown, Utensils, Package, Layers } from 'lucide-react';
+import { Search, Plus, Edit, Trash2, Eye, Filter, ArrowUpDown, Utensils, Package, Layers, Sparkles, Loader2 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
@@ -29,12 +29,26 @@ const menuCategories = [
 
 const subscriptionPlans = ['Sprout Saver', 'Regular Fix', 'Munch Legend', 'Mega Freak'];
 
+// Simulated AI suggestions based on food type
+const aiSuggestions: Record<string, { tags: string[]; description: string; nutrition: string }> = {
+  bowls: { tags: ['High Fiber', 'Gut Friendly', 'Protein Rich'], description: 'Nutrient-dense bowl packed with whole grains, fresh vegetables, and lean protein.', nutrition: 'Approx 280-380 cal, 14-22g protein, 6-10g fiber' },
+  wraps: { tags: ['Portable', 'High Protein', 'On-the-Go'], description: 'Wholesome wrap with a balance of protein, fresh greens, and flavorful sauce.', nutrition: 'Approx 260-360 cal, 16-28g protein, 3-6g fiber' },
+  drinks: { tags: ['Refreshing', 'Hydrating', 'Immunity'], description: 'Fresh cold-pressed or blended drink with natural ingredients and zero added sugar.', nutrition: 'Approx 80-200 cal, 1-8g protein, 0-4g fiber' },
+  smoothies: { tags: ['Antioxidant', 'Instagram Worthy', 'Superfood'], description: 'Thick smoothie bowl topped with seeds, fruits, and crunchy granola.', nutrition: 'Approx 250-350 cal, 6-12g protein, 4-8g fiber' },
+  pancakes: { tags: ['Indulgent', 'Comfort', 'Iron Rich'], description: 'Guilt-free pancakes made with millet flour and natural sweeteners.', nutrition: 'Approx 280-350 cal, 8-14g protein, 3-6g fiber' },
+  specials: { tags: ['Limited Edition', 'Chef Special', 'Seasonal'], description: 'Exclusive seasonal creation by our chef using locally sourced ingredients.', nutrition: 'Varies by item' },
+  combos: { tags: ['Value', 'Complete Meal', 'Popular'], description: 'Complete breakfast combo with a main item, drink, and side.', nutrition: 'Approx 400-550 cal, 18-30g protein' },
+};
+
 export default function AdminMenuPage() {
   const { toast } = useToast();
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState<SortField>('name');
   const [tab, setTab] = useState('items');
+  const [aiCategory, setAiCategory] = useState('');
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiResult, setAiResult] = useState<typeof aiSuggestions['bowls'] | null>(null);
 
   const filtered = menuItems
     .filter(item => item.name.toLowerCase().includes(search.toLowerCase()) || item.description.toLowerCase().includes(search.toLowerCase()))
@@ -51,6 +65,15 @@ export default function AdminMenuPage() {
       return a.name.localeCompare(b.name);
     });
 
+  const generateAiSuggestion = (cat: string) => {
+    setAiLoading(true);
+    setAiCategory(cat);
+    setTimeout(() => {
+      setAiResult(aiSuggestions[cat] || aiSuggestions['bowls']);
+      setAiLoading(false);
+    }, 1200);
+  };
+
   return (
     <AdminLayout active="Menu">
       <div className="mb-6 flex items-center justify-between">
@@ -66,15 +89,42 @@ export default function AdminMenuPage() {
             <DialogHeader><DialogTitle>Add New Menu Item</DialogTitle></DialogHeader>
             <div className="space-y-4 mt-4">
               <div><label className="text-sm font-medium mb-1 block">Item Name</label><Input placeholder="e.g. Masala Oats Bowl" /></div>
-              <div><label className="text-sm font-medium mb-1 block">Description</label><Input placeholder="Short description" /></div>
               <div><label className="text-sm font-medium mb-1 block">Category</label>
-                <Select>
+                <Select onValueChange={(v) => generateAiSuggestion(v)}>
                   <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
                   <SelectContent>
                     {menuCategories.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
+
+              {/* AI Suggestion Panel */}
+              {(aiLoading || aiResult) && (
+                <Card className="border-primary/20 bg-primary/5">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Sparkles className="h-4 w-4 text-primary" />
+                      <span className="text-sm font-semibold text-primary">AI Suggestions</span>
+                    </div>
+                    {aiLoading ? (
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /> Generating suggestions...</div>
+                    ) : aiResult && (
+                      <div className="space-y-2 text-sm">
+                        <div><span className="text-muted-foreground">Suggested tags:</span>
+                          <div className="flex flex-wrap gap-1 mt-1">{aiResult.tags.map(t => <Badge key={t} variant="outline" className="text-[10px] cursor-pointer hover:bg-primary/10" onClick={() => sonnerToast.success(`Tag "${t}" applied`)}>{t}</Badge>)}</div>
+                        </div>
+                        <div><span className="text-muted-foreground">Suggested description:</span><p className="text-xs mt-1 italic">{aiResult.description}</p></div>
+                        <div><span className="text-muted-foreground">Nutrition estimate:</span><p className="text-xs mt-1">{aiResult.nutrition}</p></div>
+                        <Button variant="outline" size="sm" className="w-full mt-2" onClick={() => sonnerToast.success('AI suggestions applied to form')}>
+                          <Sparkles className="h-3 w-3 mr-1" /> Apply Suggestions
+                        </Button>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              )}
+
+              <div><label className="text-sm font-medium mb-1 block">Description</label><Input placeholder="Short description" /></div>
               <div className="grid grid-cols-2 gap-3">
                 <div><label className="text-sm font-medium mb-1 block">Price (₹)</label><Input type="number" placeholder="99" /></div>
                 <div><label className="text-sm font-medium mb-1 block">Calories</label><Input type="number" placeholder="250" /></div>
@@ -167,16 +217,25 @@ export default function AdminMenuPage() {
                       <DialogTrigger asChild>
                         <Button variant="ghost" size="icon"><Edit className="h-4 w-4" /></Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-lg">
+                      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
                         <DialogHeader><DialogTitle>Edit: {item.name}</DialogTitle></DialogHeader>
                         <div className="space-y-4 mt-4">
                           <div><label className="text-sm font-medium mb-1 block">Name</label><Input defaultValue={item.name} /></div>
                           <div><label className="text-sm font-medium mb-1 block">Description</label><Input defaultValue={item.description} /></div>
                           <div><label className="text-sm font-medium mb-1 block">Category</label>
-                            <Select><SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
+                            <Select onValueChange={(v) => generateAiSuggestion(v)}>
+                              <SelectTrigger><SelectValue placeholder="Select category" /></SelectTrigger>
                               <SelectContent>{menuCategories.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}</SelectContent>
                             </Select>
                           </div>
+                          {aiResult && (
+                            <Card className="border-primary/20 bg-primary/5">
+                              <CardContent className="p-3">
+                                <div className="flex items-center gap-1 mb-1"><Sparkles className="h-3 w-3 text-primary" /><span className="text-xs font-semibold text-primary">AI Suggestions</span></div>
+                                <div className="flex flex-wrap gap-1">{aiResult.tags.map(t => <Badge key={t} variant="outline" className="text-[10px]">{t}</Badge>)}</div>
+                              </CardContent>
+                            </Card>
+                          )}
                           <div className="grid grid-cols-2 gap-3">
                             <div><label className="text-sm font-medium mb-1 block">Price (₹)</label><Input type="number" defaultValue={item.price} /></div>
                             <div><label className="text-sm font-medium mb-1 block">Calories</label><Input type="number" defaultValue={item.nutrition.calories} /></div>
