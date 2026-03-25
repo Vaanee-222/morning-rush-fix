@@ -4,13 +4,13 @@ import { Input } from '@/components/ui/input';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 
 const quickReplies: Record<string, string> = {
-  'what is 7am club': '7AM Club is a metro-adjacent healthy breakfast platform. We serve gut-friendly, persona-matched breakfasts at metro exits across Delhi NCR. Pre-order by 10 PM, pick up in 2 minutes the next morning! 🚇🥗',
+  'what is gym cafe': 'Gym Cafe is a metro-adjacent healthy breakfast platform. We serve gut-friendly, persona-matched breakfasts at metro exits across Delhi NCR. Pre-order by 10 PM, pick up in 2 minutes the next morning! 🚇🥗',
   'how to order': 'Ordering is simple! 1) Browse our menu at /menu 2) Add items to cart 3) Choose your pickup station & time 4) Pay via UPI/card 5) Show QR at the counter next morning. Done in 2 mins! ⚡',
   'subscription': 'We have 5 plans: Sprout Saver (₹899/10 meals), Regular Fix (₹1599/20 meals), Munch Legend (₹2099/30 meals), Breakfast Freak (₹2799/30 premium), and Crazy People Club (₹3999/unlimited). All include pause/cancel anytime!',
   'stations': 'We currently serve at 5 metro stations: Rajiv Chowk, Huda City Centre, Kashmere Gate, Hauz Khas, and Noida Sector 18. More coming soon! 🚉',
   'beta eater': 'Beta Eaters are our food-testing community! Apply at /beta/apply. You get 3 free meals/month, early access to new items, and can vote on upcoming menu additions. Must post 2x/week on Instagram. 📸',
   'refund': 'Refunds are processed within 3-5 business days. For orders cancelled 24+ hours before pickup, you get a full refund. Within 24 hours, you receive store credit. For quality issues, we refund 100% + a free meal on us!',
-  'partner': 'Want to run a 7AM Club station? Visit /partner to apply! Investment starts at ₹2L with 40% margins and full brand support. We handle tech, menu, and supply chain.',
+  'partner': 'Want to run a Gym Cafe station? Visit /partner to apply! Investment starts at ₹2L with 40% margins and full brand support. We handle tech, menu, and supply chain.',
   'default': "Thanks for your message! 😊 I'm a demo chatbot with limited knowledge. For detailed help, please visit our Help Center at /help or contact us at hello@7amclub.in. Our team usually responds within 24 hours!",
 };
 
@@ -35,7 +35,7 @@ export function LiveChat() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([
-    { id: 0, text: "Hi! 👋 I'm the 7AM Club assistant. Ask me about our menu, subscriptions, stations, or anything else!", sender: 'bot' },
+    { id: 0, text: "Hi! 👋 I'm the Gym Cafe assistant. Ask me about our menu, subscriptions, stations, or anything else!", sender: 'bot' },
   ]);
 
   const send = () => {

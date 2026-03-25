@@ -7,13 +7,13 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="container py-16 max-w-3xl">
-        <h1 className="font-display text-4xl font-bold mb-6">About 7AM Club</h1>
+        <h1 className="font-display text-4xl font-bold mb-6">About Gym Cafe</h1>
         <div className="rounded-2xl overflow-hidden mb-8">
-          <img src={heroFood} alt="7AM Club food" className="w-full h-64 object-cover" />
+          <img src={heroFood} alt="Gym Cafe food" className="w-full h-64 object-cover" />
         </div>
         <div className="prose prose-lg max-w-none text-foreground">
           <p className="text-muted-foreground text-lg leading-relaxed">
-            We started 7AM Club with a simple observation: 2.5 million Delhi NCR commuters skip breakfast or grab junk at metro stations every single day. That's a gut-health crisis hiding in plain sight.
+            We started Gym Cafe with a simple observation: 2.5 million Delhi NCR commuters skip breakfast or grab junk at metro stations every single day. That's a gut-health crisis hiding in plain sight.
           </p>
           <h2 className="font-display text-2xl font-bold mt-8 mb-3">Our Mission</h2>
           <p className="text-muted-foreground leading-relaxed">

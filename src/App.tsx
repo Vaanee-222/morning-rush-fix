@@ -59,6 +59,7 @@ import AdminMembershipsPage from "./pages/admin/AdminMembershipsPage";
 import AdminChaptersPage from "./pages/admin/AdminChaptersPage";
 import AdminProfilePage from "./pages/AdminProfilePage";
 import ChaptersPage from "./pages/ChaptersPage";
+import ChapterDetailPage from "./pages/ChapterDetailPage";
 import ShopPage from "./pages/ShopPage";
 import DeliveryDashboardPage from "./pages/delivery/DeliveryDashboardPage";
 import LoginPage from "./pages/auth/LoginPage";
@@ -91,6 +92,7 @@ const App = () => (
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/chapters" element={<ChaptersPage />} />
+          <Route path="/chapters/:id" element={<ChapterDetailPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/help" element={<HelpCenterPage />} />
           <Route path="/feedback" element={<FeedbackPage />} />

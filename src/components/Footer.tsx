@@ -8,9 +8,9 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-sunrise">
-                <span className="text-sm font-bold text-primary-foreground">7</span>
+                <span className="text-sm font-bold text-primary-foreground">G</span>
               </div>
-              <span className="font-display text-lg font-bold">7AM Club</span>
+              <span className="font-display text-lg font-bold">Gym Cafe</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Gut-friendly breakfasts at metro exits. Pre-book, pick up in 2 minutes, fuel your day.
@@ -21,6 +21,7 @@ export function Footer() {
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <Link to="/menu" className="hover:text-foreground transition-colors">Menu</Link>
               <Link to="/shop" className="hover:text-foreground transition-colors">Shop</Link>
+              <Link to="/chapters" className="hover:text-foreground transition-colors">Chapters</Link>
               <Link to="/pricing" className="hover:text-foreground transition-colors">Pricing</Link>
               <Link to="/membership" className="hover:text-foreground transition-colors">Membership</Link>
               <Link to="/locations" className="hover:text-foreground transition-colors">Locations</Link>
@@ -59,7 +60,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© 2026 7AM Club. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 Gym Cafe. All rights reserved.</p>
           <p className="text-sm text-muted-foreground">Made with 🧡 for Delhi NCR commuters</p>
         </div>
       </div>

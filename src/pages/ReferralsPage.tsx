@@ -46,7 +46,7 @@ export default function ReferralsPage() {
 
   const shareNative = async () => {
     if (navigator.share) {
-      await navigator.share({ title: '7AM Club Referral', text: `Join 7AM Club with my code ${referralCode} and get ₹50 off your first subscription!`, url: referralLink });
+      await navigator.share({ title: 'Gym Cafe Referral', text: `Join Gym Cafe with my code ${referralCode} and get ₹50 off your first subscription!`, url: referralLink });
     } else {
       copyText(referralLink, 'Referral link');
     }
@@ -66,7 +66,7 @@ export default function ReferralsPage() {
             {/* Hero referral card */}
             <Card className="shadow-elevated border-primary/20 overflow-hidden">
               <div className="gradient-sunrise p-6">
-                <h2 className="font-display text-2xl font-bold text-primary-foreground">Share your love for 7AM Club ☀️</h2>
+                <h2 className="font-display text-2xl font-bold text-primary-foreground">Share your love for Gym Cafe ☀️</h2>
                 <p className="text-primary-foreground/80 mt-1">When your friend subscribes, you both get ₹50 credit!</p>
               </div>
               <CardContent className="p-6">

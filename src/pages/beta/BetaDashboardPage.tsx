@@ -30,7 +30,7 @@ export default function BetaDashboardPage() {
             <h1 className="font-display text-3xl font-bold">Beta Eater Dashboard</h1>
             <Badge className="bg-persona-genz/10 text-persona-genz border-persona-genz/20">🎉 Active Member</Badge>
           </div>
-          <p className="text-muted-foreground">Welcome back! You're shaping the future of 7AM Club.</p>
+          <p className="text-muted-foreground">Welcome back! You're shaping the future of Gym Cafe.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

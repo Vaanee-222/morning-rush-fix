@@ -23,7 +23,7 @@ export default function PartnerProgramPage() {
         {/* Hero */}
         <div className="text-center mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary">Partner Program</Badge>
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Run a 7AM Club Station 🚉</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Run a Gym Cafe Station 🚉</h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Own a metro breakfast station. Low investment, high returns, full brand support.
           </p>
@@ -89,7 +89,7 @@ export default function PartnerProgramPage() {
                 <Textarea placeholder="Tell us about your background..." rows={3} />
               </div>
               <div>
-                <label className="text-sm font-medium mb-1 block">Why do you want to partner with 7AM Club?</label>
+                <label className="text-sm font-medium mb-1 block">Why do you want to partner with Gym Cafe?</label>
                 <Textarea placeholder="Your motivation..." rows={3} />
               </div>
               <Button variant="hero" className="w-full">Submit Application <ArrowRight className="ml-2 h-4 w-4" /></Button>

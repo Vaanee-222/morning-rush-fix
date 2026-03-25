@@ -28,7 +28,7 @@ export default function AdminSettingsPage() {
             <CardContent className="p-6 space-y-6">
               <h3 className="font-display font-semibold">Store Information</h3>
               <div className="grid sm:grid-cols-2 gap-4">
-                <div><label className="text-sm font-medium block mb-1">Store Name</label><Input defaultValue="7AM Club" /></div>
+                <div><label className="text-sm font-medium block mb-1">Store Name</label><Input defaultValue="Gym Cafe" /></div>
                 <div><label className="text-sm font-medium block mb-1">Support Email</label><Input defaultValue="support@7amclub.in" /></div>
                 <div><label className="text-sm font-medium block mb-1">Support Phone</label><Input defaultValue="+91 11 xxxx xxxx" /></div>
                 <div><label className="text-sm font-medium block mb-1">FSSAI License</label><Input defaultValue="10026071000123" /></div>

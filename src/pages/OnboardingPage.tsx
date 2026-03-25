@@ -53,9 +53,9 @@ export default function OnboardingPage() {
             {currentStep === 'welcome' && (
               <div className="text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl gradient-sunrise mx-auto mb-6">
-                  <span className="text-2xl font-bold text-primary-foreground">7</span>
+                  <span className="text-2xl font-bold text-primary-foreground">G</span>
                 </div>
-                <h1 className="font-display text-4xl font-bold mb-3">Welcome to 7AM Club</h1>
+                <h1 className="font-display text-4xl font-bold mb-3">Welcome to Gym Cafe</h1>
                 <p className="text-muted-foreground text-lg mb-8">Your gut-friendly breakfast, ready at the metro exit.</p>
                 <Button variant="hero" size="lg" onClick={next}>Get Started <ArrowRight className="ml-2 h-4 w-4" /></Button>
               </div>

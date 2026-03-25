@@ -18,7 +18,7 @@ export default function SignupPage() {
   const handleSignup = () => {
     if (!name || !email || !password) { toast.error('Please fill all fields'); return; }
     if (password.length < 6) { toast.error('Password must be at least 6 characters'); return; }
-    toast.success('Account created! Welcome to 7AM Club 🎉');
+    toast.success('Account created! Welcome to Gym Cafe 🎉');
     navigate('/onboarding');
   };
 
@@ -31,7 +31,7 @@ export default function SignupPage() {
               <span className="text-xl font-bold text-primary-foreground">7</span>
             </div>
           </Link>
-          <h1 className="font-display text-3xl font-bold">Join 7AM Club</h1>
+          <h1 className="font-display text-3xl font-bold">Join Gym Cafe</h1>
           <p className="text-muted-foreground mt-1">Create your account and start eating healthy</p>
         </div>
 

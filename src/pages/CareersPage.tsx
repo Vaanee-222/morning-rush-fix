@@ -43,21 +43,21 @@ const openings: JobOpening[] = [
   },
   {
     id: 'gm-1', title: 'Growth Marketing Intern', location: 'Remote', type: 'Internship', dept: 'Marketing', salary: '₹15K – 25K/month', experience: '0-1 year',
-    description: 'Drive awareness and user acquisition for 7AM Club. Work on social media, influencer campaigns, and community-building initiatives.',
+    description: 'Drive awareness and user acquisition for Gym Cafe. Work on social media, influencer campaigns, and community-building initiatives.',
     responsibilities: ['Create engaging content for Instagram, Twitter, LinkedIn', 'Manage influencer outreach and partnerships', 'Run and optimize paid ad campaigns', 'Analyze campaign performance and user behavior', 'Support launch campaigns for new stations'],
     requirements: ['Currently pursuing or recent graduate in Marketing/Communications', 'Strong writing skills in English and Hindi', 'Social media savvy with an eye for trends', 'Basic understanding of Meta Ads, Google Ads', 'Portfolio of any previous marketing work'],
     perks: ['Flexible remote work', 'Free monthly breakfast subscription', 'Mentorship from founding team', 'Certificate of completion', 'PPO based on performance'],
   },
   {
     id: 'fsd-1', title: 'Full Stack Developer', location: 'Remote / Delhi', type: 'Full-time', dept: 'Engineering', salary: '₹12 – 22 LPA', experience: '2-5 years',
-    description: 'Build and scale the 7AM Club platform — from the consumer app to kitchen management systems and delivery orchestration.',
+    description: 'Build and scale the Gym Cafe platform — from the consumer app to kitchen management systems and delivery orchestration.',
     responsibilities: ['Develop and maintain React + TypeScript frontend', 'Build backend APIs with Node.js / Supabase', 'Design and optimize PostgreSQL database schemas', 'Implement real-time order tracking and notifications', 'Participate in architecture decisions and code reviews'],
     requirements: ['2+ years with React, TypeScript, Node.js', 'Experience with PostgreSQL and REST/GraphQL APIs', 'Familiarity with Supabase, Firebase, or AWS', 'Understanding of CI/CD and deployment pipelines', 'Strong problem-solving and communication skills'],
     perks: ['Remote-first culture', 'MacBook provided', 'Free breakfast subscription', 'ESOP eligibility', 'Conference & learning budget'],
   },
   {
     id: 'cm-1', title: 'Community Manager', location: 'Delhi NCR', type: 'Full-time', dept: 'Community', salary: '₹4 – 6 LPA', experience: '1-3 years',
-    description: 'Build and nurture the 7AM Club community. Manage WhatsApp groups, Beta Eater program, referral campaigns, and user engagement.',
+    description: 'Build and nurture the Gym Cafe community. Manage WhatsApp groups, Beta Eater program, referral campaigns, and user engagement.',
     responsibilities: ['Manage 10+ WhatsApp community groups', 'Run the Beta Eater program and reward system', 'Organize offline community events and tastings', 'Collect and route user feedback to product team', 'Create community content and highlight user stories'],
     requirements: ['1+ years in community management or customer success', 'Excellent interpersonal and communication skills', 'Experience with WhatsApp Business or community platforms', 'Empathetic listener who loves talking to users', 'Based in Delhi NCR for events'],
     perks: ['Free daily breakfast', 'Community event budget', 'Health insurance', 'Flexible working hours', 'Team retreats'],
@@ -277,7 +277,7 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="cover">Why do you want to join 7AM Club? *</Label>
+                  <Label htmlFor="cover">Why do you want to join Gym Cafe? *</Label>
                   <Textarea id="cover" required placeholder="Tell us what excites you about this role and our mission..." rows={4} />
                 </div>
                 <div className="flex gap-3 pt-2">
