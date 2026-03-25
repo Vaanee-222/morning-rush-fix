@@ -16,7 +16,7 @@ const testimonials = [
   { id: '4', name: 'Rahul K.', persona: 'Guilt-Free Rebel', emoji: '🍫', quote: 'Ragi Pancakes taste indulgent but are actually healthy? Sign me up forever.', duration: '1:30', rating: 5, views: '6.2K', likes: 167, thumbnail: '🥞' },
   { id: '5', name: 'Meera R.', persona: 'Protein Hustler', emoji: '💪', quote: 'As a fitness enthusiast, finding 24g protein at a metro station is unreal.', duration: '0:35', rating: 4, views: '9.8K', likes: 312, thumbnail: '💪' },
   { id: '6', name: 'Vikram P.', persona: 'Gut Guardian', emoji: '🫘', quote: 'The Probiotic Lassi is my daily ritual now. My digestion has improved so much.', duration: '1:05', rating: 5, views: '11K', likes: 278, thumbnail: '🥛' },
-  { id: '7', name: 'Kavya S.', persona: 'Trend Setter', emoji: '✨', quote: 'Dragon Fruit Bowl for breakfast? Only at 7AM Club. Living my best life.', duration: '0:42', rating: 5, views: '18K', likes: 523, thumbnail: '🐉' },
+  { id: '7', name: 'Kavya S.', persona: 'Trend Setter', emoji: '✨', quote: 'Dragon Fruit Bowl for breakfast? Only at Gym Cafe. Living my best life.', duration: '0:42', rating: 5, views: '18K', likes: 523, thumbnail: '🐉' },
   { id: '8', name: 'Arjun T.', persona: 'Guilt-Free Rebel', emoji: '🍫', quote: 'Nutella Crepes that are \'guilt-free\'? I don\'t care if it\'s marketing, they\'re delicious.', duration: '0:55', rating: 4, views: '7.1K', likes: 198, thumbnail: '🍫' },
 ];
 
@@ -68,7 +68,7 @@ export default function ExperiencePage() {
               The 7AM <span className="text-gradient-sunrise">Experience</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="text-muted-foreground text-lg max-w-xl mx-auto">
-              Real stories from real commuters. Watch, explore, and see how 7AM Club is changing Delhi NCR's breakfast game.
+              Real stories from real commuters. Watch, explore, and see how Gym Cafe is changing Delhi NCR's breakfast game.
             </motion.p>
           </motion.div>
         </div>

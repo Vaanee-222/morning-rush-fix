@@ -1,4 +1,4 @@
-// Mock data for the 7AM Club platform
+// Mock data for the Gym Cafe platform
 
 export interface MenuItem {
   id: string;

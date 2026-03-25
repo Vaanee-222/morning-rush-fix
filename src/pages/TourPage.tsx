@@ -71,7 +71,7 @@ export default function TourPage() {
       <div className="container py-12 max-w-3xl">
         <div className="text-center mb-8">
           <Badge className="mb-3 bg-primary/10 text-primary">Interactive Tour</Badge>
-          <h1 className="font-display text-3xl md:text-4xl font-bold">Discover 7AM Club</h1>
+          <h1 className="font-display text-3xl md:text-4xl font-bold">Discover Gym Cafe</h1>
         </div>
 
         {/* Progress */}

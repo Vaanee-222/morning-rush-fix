@@ -21,7 +21,7 @@ export default function FeedbackPage() {
             <ThumbsUp className="h-8 w-8 text-secondary" />
           </div>
           <h1 className="font-display text-3xl font-bold mb-3">Thank You! 🎉</h1>
-          <p className="text-muted-foreground mb-6">Your feedback helps us make 7AM Club better for everyone.</p>
+          <p className="text-muted-foreground mb-6">Your feedback helps us make Gym Cafe better for everyone.</p>
           <Button variant="hero" onClick={() => setSubmitted(false)}>Submit Another</Button>
         </div>
         <Footer />
@@ -35,7 +35,7 @@ export default function FeedbackPage() {
       <div className="container py-12 max-w-2xl">
         <div className="text-center mb-8">
           <h1 className="font-display text-3xl font-bold mb-2">We Value Your Feedback 💬</h1>
-          <p className="text-muted-foreground">Help us improve the 7AM Club experience.</p>
+          <p className="text-muted-foreground">Help us improve the Gym Cafe experience.</p>
         </div>
 
         <Card className="shadow-elevated">

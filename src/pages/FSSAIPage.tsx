@@ -12,7 +12,7 @@ export default function FSSAIPage() {
         <div className="text-center mb-10">
           <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">Verified & Licensed</Badge>
           <h1 className="font-display text-4xl font-bold mb-3">FSSAI License</h1>
-          <p className="text-muted-foreground">Your safety is our top priority. 7AM Club is fully licensed and compliant with FSSAI regulations.</p>
+          <p className="text-muted-foreground">Your safety is our top priority. Gym Cafe is fully licensed and compliant with FSSAI regulations.</p>
         </div>
 
         <Card className="shadow-elevated mb-8">

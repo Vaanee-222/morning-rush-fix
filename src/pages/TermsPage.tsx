@@ -10,10 +10,10 @@ export default function TermsPage() {
         <p className="text-muted-foreground">Last updated: March 1, 2026</p>
 
         <h2>1. Acceptance of Terms</h2>
-        <p>By accessing and using the 7AM Club platform ("Service"), you agree to be bound by these Terms and Conditions. If you do not agree, please do not use the Service.</p>
+        <p>By accessing and using the Gym Cafe platform ("Service"), you agree to be bound by these Terms and Conditions. If you do not agree, please do not use the Service.</p>
 
         <h2>2. Service Description</h2>
-        <p>7AM Club provides a pre-order breakfast pickup service at select Delhi NCR metro stations. Orders must be placed at least 24 hours in advance.</p>
+        <p>Gym Cafe provides a pre-order breakfast pickup service at select Delhi NCR metro stations. Orders must be placed at least 24 hours in advance.</p>
 
         <h2>3. Account Registration</h2>
         <p>You must provide accurate information during registration. You are responsible for maintaining the confidentiality of your account credentials.</p>
@@ -28,10 +28,10 @@ export default function TermsPage() {
         <p>Orders can be cancelled up to 12 hours before the scheduled pickup. Refunds are processed within 5-7 business days. See our Refund Policy for details.</p>
 
         <h2>7. Intellectual Property</h2>
-        <p>All content, branding, and materials on the platform are owned by 7AM Club. You may not reproduce or distribute without written permission.</p>
+        <p>All content, branding, and materials on the platform are owned by Gym Cafe. You may not reproduce or distribute without written permission.</p>
 
         <h2>8. Limitation of Liability</h2>
-        <p>7AM Club shall not be liable for any indirect, incidental, or consequential damages arising from use of the Service.</p>
+        <p>Gym Cafe shall not be liable for any indirect, incidental, or consequential damages arising from use of the Service.</p>
 
         <h2>9. Changes to Terms</h2>
         <p>We reserve the right to modify these terms at any time. Continued use of the Service constitutes acceptance of updated terms.</p>

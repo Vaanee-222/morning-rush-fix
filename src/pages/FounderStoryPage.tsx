@@ -18,7 +18,7 @@ export default function FounderStoryPage() {
       <div className="container py-12 max-w-3xl">
         <div className="text-center mb-12">
           <Badge className="mb-4 bg-primary/10 text-primary">Our Story</Badge>
-          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">How 7AM Club Was Born</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">How Gym Cafe Was Born</h1>
           <p className="text-muted-foreground text-lg">The story of turning a metro exit into India's breakfast revolution.</p>
         </div>
 

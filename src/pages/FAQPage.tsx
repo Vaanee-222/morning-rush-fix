@@ -3,7 +3,7 @@ import { Footer } from '@/components/Footer';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const faqs = [
-  { q: 'How does 7AM Club work?', a: 'Pre-order your breakfast the night before, pick it up in under 2 minutes at your metro station exit. Fresh, gut-friendly, and ready to go.' },
+  { q: 'How does Gym Cafe work?', a: 'Pre-order your breakfast the night before, pick it up in under 2 minutes at your metro station exit. Fresh, gut-friendly, and ready to go.' },
   { q: 'When should I place my order?', a: 'Orders must be placed at least 24 hours in advance. This ensures freshly prepared meals at your chosen pickup time.' },
   { q: 'What metro stations do you serve?', a: 'We currently serve Rajiv Chowk, Huda City Centre, Kashmere Gate, Hauz Khas, and Noida Sector 18. More stations launching soon!' },
   { q: 'How do subscriptions work?', a: 'Choose from 10, 20, or 30 meals per month. Schedule your meals flexibly, pause anytime, and enjoy savings of up to 30% vs à la carte.' },
@@ -21,7 +21,7 @@ export default function FAQPage() {
       <Navbar />
       <div className="container py-12 max-w-2xl">
         <h1 className="font-display text-4xl font-bold text-center mb-2">Frequently Asked Questions</h1>
-        <p className="text-center text-muted-foreground mb-8">Everything you need to know about 7AM Club.</p>
+        <p className="text-center text-muted-foreground mb-8">Everything you need to know about Gym Cafe.</p>
         <Accordion type="single" collapsible className="space-y-2">
           {faqs.map((faq, i) => (
             <AccordionItem key={i} value={`faq-${i}`} className="border rounded-lg px-4">

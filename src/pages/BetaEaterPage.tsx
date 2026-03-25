@@ -22,7 +22,7 @@ export default function BetaEaterPage() {
         <div className="text-center mb-10">
           <Badge className="mb-4 bg-persona-genz/10 text-persona-genz border-persona-genz/20">Applications Open</Badge>
           <h1 className="font-display text-4xl font-bold mb-3">Become a Beta Eater 🍽️</h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">Join our inner circle of food lovers who taste-test new items, share honest feedback, and help shape the 7AM Club menu.</p>
+          <p className="text-muted-foreground max-w-xl mx-auto">Join our inner circle of food lovers who taste-test new items, share honest feedback, and help shape the Gym Cafe menu.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4 mb-10">
@@ -66,7 +66,7 @@ export default function BetaEaterPage() {
               </div>
               <div className="flex items-start gap-2">
                 <input type="checkbox" className="mt-1" />
-                <p className="text-sm text-muted-foreground">I agree to post a minimum of 2 Instagram stories per week featuring 7AM Club meals.</p>
+                <p className="text-sm text-muted-foreground">I agree to post a minimum of 2 Instagram stories per week featuring Gym Cafe meals.</p>
               </div>
               <Button variant="hero" className="w-full">Submit Application</Button>
             </div>

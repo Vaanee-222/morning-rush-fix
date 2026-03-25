@@ -40,7 +40,7 @@ export default function LoginPage() {
             </div>
           </Link>
           <h1 className="font-display text-3xl font-bold">Welcome Back</h1>
-          <p className="text-muted-foreground mt-1">Sign in to your 7AM Club account</p>
+          <p className="text-muted-foreground mt-1">Sign in to your Gym Cafe account</p>
         </div>
 
         <Card className="shadow-card">
