@@ -22,9 +22,9 @@ export function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-sunrise">
-            <span className="text-lg font-bold text-primary-foreground">7</span>
+            <span className="text-lg font-bold text-primary-foreground">G</span>
           </div>
-          <span className="font-display text-xl font-bold text-foreground">7AM Club</span>
+          <span className="font-display text-xl font-bold text-foreground">Gym Cafe</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
